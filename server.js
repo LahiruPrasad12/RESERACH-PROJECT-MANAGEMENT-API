@@ -21,10 +21,8 @@ const URL= 'mongodb+srv://ecoprints:456abc@cluster0.inyuslv.mongodb.net/ecoprint
 
 mongoose
     .connect(URL,{
-        useNewUrlParser: true,
-        useCreateIndex: true,
-        useFindAndModify: false,
-        useUnifiedTopology: true
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
     })
     .then(() => console.log('DB connection successful!'));
 
