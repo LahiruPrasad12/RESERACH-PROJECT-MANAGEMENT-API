@@ -174,7 +174,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   }
 
   //Verification token. This will return promise. So, i jsut used promisify inbuild method
-  const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+  const decoded = await promisify(jwt.verify)(token, '<:C<}x6Ta%qw7HYRe/qV7QQ9jZt9RAV#\Nw]P{)ZL?~#@K"`3N');
 
   // Check if user still exists
   const currentUser = await User.findById(decoded.id);
