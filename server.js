@@ -17,7 +17,7 @@ const server = app.listen(port, () => {
     console.log(`App running on port ${port}...`);
 });
 
-const URL= 'mongodb+srv://Admin:hash99lahi20@hotelsobana.z6log.mongodb.net/project_managment?retryWrites=true&w=majority';
+const URL= 'mongodb+srv://ecoprints:456abc@cluster0.inyuslv.mongodb.net/ecoprints?retryWrites=true&w=majority';
 
 mongoose
     .connect(URL,{
