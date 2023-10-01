@@ -1,5 +1,5 @@
 const asyncHandler = require("express-async-handler");
-const Chat = require("../models/chatModel");
+const Chat = require("../Models/chatModel");
 const User = require("../Models/userModel");
 const Group = require("../Models/groupModel");
 
