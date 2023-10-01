@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require("cors")
 
-dotenv.config({ path: './config.env' });
+// dotenv.config({ path: './config.env' });
 
 
 
@@ -12,12 +12,12 @@ app.use(cors({
   credentials:true
 }));
 
-const port = process.env.PORT || 3000;
+const port = 5000;
 const server = app.listen(port, () => {
     console.log(`App running on port ${port}...`);
 });
 
-const URL= process.env.DATABASE;
+const URL= 'mongodb+srv://Admin:hash99lahi20@hotelsobana.z6log.mongodb.net/project_managment?retryWrites=true&w=majority';
 
 mongoose
     .connect(URL,{
@@ -31,7 +31,7 @@ mongoose
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "http://localhost:3000",
+    origin: "*",
     // credentials: true,
   },
 });
