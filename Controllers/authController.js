@@ -128,8 +128,8 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
 
 //created token
 const signToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRES_IN,
+  return jwt.sign({ id }, '<:C<}x6Ta%qw7HYRe/qV7QQ9jZt9RAV#\Nw]P{)ZL?~#@K"`3N', {
+    expiresIn: '90d'
   });
 };
 
