@@ -1,5 +1,5 @@
-const User = require("../Model/userModel");
-const Group = require("../Model/groupModel");
+const User = require("../Models/userModel");
+const Group = require("../Models/groupModel");
 const catchAsync = require("../Utils/catchAsync");
 const jwt = require("jsonwebtoken");
 const AppError = require("../Utils/appError");

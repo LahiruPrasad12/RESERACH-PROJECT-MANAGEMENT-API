@@ -1,5 +1,5 @@
-const User = require('../Model/userModel');
-const Document = require('../Model/documentModel');
+const User = require('../Models/userModel');
+const Document = require('../Models/documentModel');
 const AppError = require('../Utils/appError');
 const catchAsync = require('../Utils/catchAsync');
 const Filters = require('../Utils/filters');
