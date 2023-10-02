@@ -7,24 +7,34 @@ const cors = require("cors")
 
 
 const app = require('./app');
-app.use(cors({
-  origin: '*',
-  credentials:true
-}));
+const allowedOrigins = ['https://research-project-management-ui.vercel.app', 'https://localhost:3000'];
 
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // Enable passing cookies and other credentials
+};
+
+app.use(cors(corsOptions));
 const port = 5000;
 const server = app.listen(port, () => {
-    console.log(`App running on port ${port}...`);
+  console.log(`App running on port ${port}...`);
 });
 
-const URL= 'mongodb+srv://ecoprints:456abc@cluster0.inyuslv.mongodb.net/ecoprints?retryWrites=true&w=majority';
+const URL = 'mongodb+srv://ecoprints:456abc@cluster0.inyuslv.mongodb.net/ecoprints?retryWrites=true&w=majority';
 
 mongoose
-    .connect(URL,{
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
-    .then(() => console.log('DB connection successful!'));
+  .connect(URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log('DB connection successful!'));
 
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
