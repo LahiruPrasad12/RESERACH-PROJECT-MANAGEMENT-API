@@ -25,20 +25,21 @@ const cors = require("cors");
 
 const app = express();
 
+const allowedOrigins = ['https://research-project-management-ui.vercel.app', 'https://localhost:3000'];
+
 const corsOptions = {
-  origin: 'https://research-project-management-ui.vercel.app', // Replace with your frontend app's URL
+  origin: function (origin, callback) {
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true, // Enable passing cookies and other credentials
-  optionsSuccessStatus: 204, // Set the response status code for successful OPTIONS requests
 };
 
-app.use(
-  cors(corsOptions,{
-    origin: '*',
-    credentials: true,
-  })
-);
-
+app.use(cors(corsOptions));
 //GLOBAL MIDDLEWARES
 
 // Set security HTTP headers
