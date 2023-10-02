@@ -24,8 +24,16 @@ const document = require("./Routes/documentRoutes");
 const cors = require("cors");
 
 const app = express();
+
+const corsOptions = {
+  origin: 'https://research-project-management-ui.vercel.app', // Replace with your frontend app's URL
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // Enable passing cookies and other credentials
+  optionsSuccessStatus: 204, // Set the response status code for successful OPTIONS requests
+};
+
 app.use(
-  cors({
+  cors(corsOptions,{
     origin: '*',
     credentials: true,
   })
